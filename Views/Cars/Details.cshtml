@@ -1,0 +1,82 @@
+﻿@model Dealership.Models.Car
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.An)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.An)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Motor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Motor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cutie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cutie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Combustibil)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Combustibil)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pret)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pret)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Orders)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Customer</th>
+                    <th>Order Date</th>
+                </tr>
+                @foreach (var item in Model.Orders)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderDate)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
